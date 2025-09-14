@@ -29,12 +29,12 @@
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
 :root { 
-  --background-color: #FBF4EB; /* Champagne - Background color for the entire website */
-  --default-color: #C43670; /* Raspberry Rose - Default text color */
-  --heading-color: #F283AF; /* Tickle Me Pink - Headings color */
-  --accent-color: #F3CC97; /* Sunset - Accent color for buttons and highlights */
-  --surface-color: #FFD9E5; /* Cherry Blossom - Surface elements background */
-  --contrast-color: #FBD9E5; /* Blush - Contrast text color */
+  --background-color: #FBF4EB;  /* Champagne */
+  --default-color: #C43670;     /* Raspberry Rose */
+  --heading-color: #C43670;     /* Changed to Raspberry Rose for better contrast */
+  --accent-color: #F3CC97;      /* Sunset */
+  --surface-color: #FFD9E5;     /* Cherry Blossom */
+  --contrast-color: #FBD9E5;    /* Blush */
 }
 
 /* Nav Menu Colors */
@@ -158,11 +158,12 @@ h6 {
   top: 0;
   left: 0;
   bottom: 0;
-  padding: 0 15px;
+  padding: 0 30px;
   transition: all ease-in-out 0.3s;
   overflow-y: auto;
   z-index: 997;
   min-width: 200px;
+  width: 300px; /* Increased width */
 }
 
 @media (max-width: 1199px) {
@@ -1466,4 +1467,44 @@ section,
 --------------------------------------------------------------*/
 .starter-section {
   /* Add your styles here */
+}
+
+/* Update container widths */
+.container {
+  max-width: 1320px !important; /* Increased from default */
+  padding-left: 30px !important;
+  padding-right: 30px !important;
+  margin: 0 auto;
+}
+
+/* Adjust header position for wider content */
+.header {
+  padding: 0 30px;
+  width: 300px; /* Increased width */
+}
+
+/* Update main content margin */
+.main {
+  margin-left: 300px; /* Match header width */
+  padding: 40px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1199px) {
+  .main {
+    margin-left: 0;
+    padding: 20px;
+  }
+  
+  .container {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+
+/* Larger screens */
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1440px !important;
+  }
 }
