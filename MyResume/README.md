@@ -2,7 +2,7 @@
 
 A modern, responsive portfolio website built with HTML, CSS, and Bootstrap to showcase my projects, skills, and experience as a Computer Science student and creative technologist.
 
-## 🌟 Features
+## Features
 
 - **Responsive Design**: Fully mobile-friendly layout
 - **Modern UI**: Clean, professional aesthetic with smooth animations
@@ -14,7 +14,7 @@ A modern, responsive portfolio website built with HTML, CSS, and Bootstrap to sh
   - Portfolio: Showcase of projects and work samples
   - Contact: Multiple ways to get in touch
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 - HTML5
 - CSS3
@@ -27,7 +27,7 @@ A modern, responsive portfolio website built with HTML, CSS, and Bootstrap to sh
   - GLightbox
   - Swiper
 
-## 🚀 Getting Started
+## Getting Started
 
 1. Clone the repository
 ```bash
@@ -41,7 +41,7 @@ git clone https://github.com/mayieeee/portfolio-dorado.git
    - Using Python: `python -m http.server 8000`
    - Using Node.js: `npx serve`
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 MyResume/
@@ -56,24 +56,24 @@ MyResume/
 └── README.md
 ```
 
-## 🎨 Customization
+## Customization
 
 - Colors: Edit variables in `assets/css/main.css`
 - Content: Modify text in respective HTML sections
 - Images: Replace files in `assets/img/` directory
 - Styling: Customize Bootstrap classes or add custom CSS
 
-## 📝 License
+## License
 
 Template from BootstrapMade.com - [License Details](https://bootstrapmade.com/license/)
 
-## 📫 Contact
+## Contact
 
 - Email: rielledorado@gmail.com
 - LinkedIn: [Your LinkedIn]
 - GitHub: [@mayieeee](https://github.com/mayieeee)
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - Template by [BootstrapMade](https://bootstrapmade.com/)
 - Icons by Bootstrap Icons
