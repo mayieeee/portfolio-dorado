@@ -23,9 +23,7 @@ A modern, responsive portfolio website built with HTML, CSS, and Bootstrap to sh
 - Various libraries:
   - AOS (Animate On Scroll)
   - Typed.js
-  - Isotope
-  - GLightbox
-  - Swiper
+
 
 ## Getting Started
 

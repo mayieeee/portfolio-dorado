@@ -19,32 +19,23 @@
 
 /* Main color variables */
 :root {
-  --color-primary: #F283AF;     /* Tickle Me Pink */
-  --color-secondary: #C43670;   /* Raspberry Rose */
-  --color-background: #FBF4EB;  /* Champagne */
-  --color-light: #FFD9E5;      /* Cherry Blossom */
-  --color-light-alt: #FBD9E5;  /* Blush */
-  --color-accent: #F3CC97;     /* Sunset */
-}
-
-/* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
-:root { 
-  --background-color: #FBF4EB;  /* Champagne */
-  --default-color: #C43670;     /* Raspberry Rose */
-  --heading-color: #C43670;     /* Changed to Raspberry Rose for better contrast */
-  --accent-color: #F3CC97;      /* Sunset */
-  --surface-color: #FFD9E5;     /* Cherry Blossom */
-  --contrast-color: #FBD9E5;    /* Blush */
-}
-
-/* Nav Menu Colors */
-:root {
-  --nav-color: #C43670;  /* Raspberry Rose - Default nav links */
-  --nav-hover-color: #F283AF; /* Tickle Me Pink - Nav hover state */
-  --nav-mobile-background-color: #FBF4EB; /* Champagne - Mobile nav background */
-  --nav-dropdown-background-color: #FFD9E5; /* Cherry Blossom - Dropdown background */
-  --nav-dropdown-color: #C43670; /* Raspberry Rose - Dropdown text */
-  --nav-dropdown-hover-color: #F283AF; /* Tickle Me Pink - Dropdown hover */
+  --primary: #FF69B4;          /* Bright Pink */
+  --primary-light: #FFB6C1;    /* Light Pink */
+  --primary-dark: #DB7093;     /* Dark Pink */
+  
+  /* Global Colors */
+  --background-color: #FFF5F7; /* Very Light Pink */
+  --default-color: #4A4A4A;    /* Dark Gray Text */
+  --heading-color: #FF69B4;    /* Pink Headers */
+  --accent-color: #FFB6C1;     /* Light Pink Accents */
+  --surface-color: #FFE4E1;    /* Misty Rose */
+  --contrast-color: #FFFFFF;   /* White */
+  
+  /* Navigation Colors */
+  --nav-color: #4A4A4A;        /* Dark Gray Nav Text */
+  --nav-hover-color: #FF69B4;  /* Pink on Hover */
+  --nav-mobile-bg: #FFF5F7;    /* Light Background */
+  --nav-dropdown-bg: #FFE4E1;  /* Misty Rose Dropdown */
 }
 
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
@@ -527,78 +518,149 @@ section,
 # Hero Section
 --------------------------------------------------------------*/
 .hero {
-  width: 100%;
-  min-height: 100vh;
   position: relative;
-  padding: 80px 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  min-height: 100vh;
+  width: 100vw;
+  margin-left: calc(-1 * (100vw - 100%));
+  background: linear-gradient(135deg, var(--background-color) 0%, var(--accent-color) 100%);
+  overflow: hidden;
+  padding-left: 80px; /* Adjust this value to match your sidebar width */
 }
 
-.hero img {
+.hero-bg {
   position: absolute;
-  inset: 0;
-  display: block;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  z-index: 1;
-}
-
-.hero:before {
-  content: "";
-  background: color-mix(in srgb, var(--background-color), transparent 30%);
-  position: absolute;
-  inset: 0;
-  z-index: 2;
+  opacity: 0.1;
+  background-image: 
+    radial-gradient(circle at 25px 25px, var(--accent-color) 2%, transparent 0%),
+    radial-gradient(circle at 75px 75px, var(--accent-color) 2%, transparent 0%);
+  background-size: 100px 100px;
+  animation: float 20s ease-in-out infinite;
+  z-index: 0;
 }
 
 .hero .container {
   position: relative;
-  z-index: 3;
+  z-index: 1;
 }
 
-.hero h2 {
-  margin: 0;
-  font-size: 64px;
-  font-weight: 700;
+/* Adjust header styles to ensure proper layering */
+.header {
+  position: fixed;
+  z-index: 996;
 }
 
-.hero p {
-  margin: 5px 0 0 0;
-  font-size: 26px;
+/* Media query for mobile responsiveness */
+@media (max-width: 1199px) {
+  .hero {
+    padding-left: 0;
+  }
 }
 
-.hero p span {
-  letter-spacing: 1px;
-  border-bottom: 2px solid var(--accent-color);
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
-.hero .social-links {
-  margin-top: 25px;
-}
-
-.hero .social-links a {
-  font-size: 20px;
-  display: inline-block;
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
-  line-height: 1;
-  margin-right: 20px;
-  transition: 0.3s;
-}
-
-.hero .social-links a:hover {
+.hero-subtitle {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 500;
   color: var(--accent-color);
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+}
+
+.hero-title {
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  background: linear-gradient(45deg, var(--heading-color) 0%, var(--accent-color) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-text {
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.btn-primary,
+.btn-outline {
+  padding: 15px 35px;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: var(--heading-color);
+  color: white;
+  border: none;
+}
+
+.btn-outline {
+  border: 2px solid var(--heading-color);
+  color: var(--heading-color);
+  background: transparent;
+}
+
+.social-links {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.social-icon {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--heading-color);
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  background: var(--heading-color);
+  color: white;
+  transform: translateY(-3px);
 }
 
 @media (max-width: 768px) {
-  .hero h2 {
-    font-size: 32px;
+  .hero-title {
+    font-size: 2.5rem;
   }
-
-  .hero p {
-    font-size: 20px;
+  
+  .hero-text {
+    font-size: 1.2rem;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+  }
+  
+  .hero-content {
+    padding: 20px;
   }
 }
 
@@ -705,14 +767,14 @@ section,
   width: 1px;
   height: 10px;
   transition: 0.9s;
-  background-color: var(--accent-color);
+  background-color: var(--primary);
 }
 
 /*--------------------------------------------------------------
 # Resume Section
 --------------------------------------------------------------*/
 .resume .resume-title {
-  color: var(--heading-color);
+  color: var(--primary-dark);
   font-size: 26px;
   font-weight: 700;
   margin-top: 20px;
@@ -721,7 +783,7 @@ section,
 
 .resume .resume-item {
   padding: 0 0 20px 20px;
-  margin-top: -2px;
+  margin-bottom: 20px;
   border-left: 2px solid var(--accent-color);
   position: relative;
 }
@@ -875,10 +937,12 @@ section,
   background-color: var(--surface-color);
   box-shadow: 0px 5px 90px 0px rgba(0, 0, 0, 0.1);
   height: 100%;
-  padding: 60px 30px;
+  padding: 30px;
+  margin-bottom: 30px;
   text-align: center;
   transition: 0.3s;
   border-radius: 5px;
+  border-bottom: 3px solid var(--primary);
 }
 
 .services .service-item .icon {
@@ -923,78 +987,7 @@ section,
 
 .services .service-item:hover {
   box-shadow: 0px 5px 35px 0px rgba(0, 0, 0, 0.1);
-}
-
-.services .service-item.item-cyan i {
-  color: #0dcaf0;
-}
-
-.services .service-item.item-cyan:hover .icon i {
-  color: #fff;
-}
-
-.services .service-item.item-cyan:hover .icon path {
-  fill: #0dcaf0;
-}
-
-.services .service-item.item-orange i {
-  color: #fd7e14;
-}
-
-.services .service-item.item-orange:hover .icon i {
-  color: #fff;
-}
-
-.services .service-item.item-orange:hover .icon path {
-  fill: #fd7e14;
-}
-
-.services .service-item.item-teal i {
-  color: #20c997;
-}
-
-.services .service-item.item-teal:hover .icon i {
-  color: #fff;
-}
-
-.services .service-item.item-teal:hover .icon path {
-  fill: #20c997;
-}
-
-.services .service-item.item-red i {
-  color: #df1529;
-}
-
-.services .service-item.item-red:hover .icon i {
-  color: #fff;
-}
-
-.services .service-item.item-red:hover .icon path {
-  fill: #df1529;
-}
-
-.services .service-item.item-indigo i {
-  color: #6610f2;
-}
-
-.services .service-item.item-indigo:hover .icon i {
-  color: #fff;
-}
-
-.services .service-item.item-indigo:hover .icon path {
-  fill: #6610f2;
-}
-
-.services .service-item.item-pink i {
-  color: #f3268c;
-}
-
-.services .service-item.item-pink:hover .icon i {
-  color: #fff;
-}
-
-.services .service-item.item-pink:hover .icon path {
-  fill: #f3268c;
+  background: var(--primary);
 }
 
 /*--------------------------------------------------------------
@@ -1086,8 +1079,8 @@ section,
 }
 
 .contact .info-item i {
-  color: var(--accent-color);
-  background: color-mix(in srgb, var(--accent-color), transparent 92%);
+  color: var(--primary);
+  background: color-mix(in srgb, var(--primary), transparent 92%);
   font-size: 20px;
   width: 44px;
   height: 44px;
@@ -1506,5 +1499,194 @@ section,
 @media (min-width: 1400px) {
   .container {
     max-width: 1440px !important;
+  }
+}
+
+/* Theme Variables */
+:root {
+  /* Light Theme (default) */
+  --light-background: #FFF5F7;
+  --light-text: #4A4A4A;
+  --light-heading: #FF69B4;
+  --light-surface: #FFE4E1;
+  --light-accent: #FFB6C1;
+
+  /* Dark Theme */
+  --dark-background: #1A1A1A;
+  --dark-text: #E1E1E1;
+  --dark-heading: #FF69B4;
+  --dark-surface: #2D2D2D;
+  --dark-accent: #FF69B4;
+}
+
+/* Light Theme Class */
+:root[data-theme="light"] {
+  --background-color: var(--light-background);
+  --default-color: var(--light-text);
+  --heading-color: var(--light-heading);
+  --surface-color: var(--light-surface);
+  --accent-color: var(--light-accent);
+}
+
+/* Dark Theme Class */
+:root[data-theme="dark"] {
+  --background-color: var(--dark-background);
+  --default-color: var(--dark-text);
+  --heading-color: var(--dark-heading);
+  --surface-color: var(--dark-surface);
+  --accent-color: var(--dark-accent);
+}
+
+/* Theme Toggle Styles */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.theme-toggle button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--accent-color);
+  padding: 8px;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.theme-toggle button:hover {
+  background: color-mix(in srgb, var(--accent-color), transparent 90%);
+}
+
+/* Show/hide icons based on theme */
+:root[data-theme="light"] .dark-icon,
+:root[data-theme="dark"] .light-icon {
+  display: none;
+}
+
+/* Global Spacing Fixes */
+:root {
+  --section-padding: 80px 0;
+  --container-padding: 0 15px;
+  --section-gap: 60px;
+}
+
+/* Main Content Spacing */
+.main {
+  margin-left: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Section Spacing */
+.section {
+  padding: var(--section-padding);
+}
+
+/* Container Padding */
+.container {
+  padding: var(--container-padding);
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+/* Section Title Spacing */
+.section-title {
+  padding-bottom: 40px;
+}
+
+/* Hero Section Adjustments */
+.hero {
+  min-height: 100vh;
+  padding: 100px 0;
+}
+
+.hero-content {
+  padding: 40px 20px;
+}
+
+/* About Section Spacing */
+.about .content {
+  padding: 30px 0;
+}
+
+/* Skills Section Spacing */
+.skills-content {
+  padding: 20px 0;
+}
+
+.progress {
+  margin-bottom: 25px;
+}
+
+/* Resume Section Spacing */
+.resume .resume-title {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.resume-item {
+  padding: 0 0 20px 20px;
+  margin-bottom: 20px;
+}
+
+/* Services Section Spacing */
+.services .service-item {
+  padding: 30px;
+  margin-bottom: 30px;
+}
+
+/* Contact Section Spacing */
+.contact .info-item {
+  padding: 30px;
+  margin-bottom: 20px;
+}
+
+.contact form {
+  padding: 30px;
+}
+
+/* Footer Spacing */
+.footer {
+  padding: 50px 0;
+  text-align: center;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991px) {
+  :root {
+    --section-padding: 60px 0;
+    --section-gap: 40px;
+  }
+  
+  .container {
+    padding: 0 20px;
+  }
+  
+  .section-title {
+    padding-bottom: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --section-padding: 40px 0;
+    --section-gap: 30px;
+  }
+  
+  .hero-content {
+    padding: 20px;
+  }
+  
+  .resume-item {
+    padding: 0 0 15px 15px;
+    margin-bottom: 15px;
+  }
+  
+  .services .service-item {
+    padding: 20px;
+    margin-bottom: 20px;
   }
 }
