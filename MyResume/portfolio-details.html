@@ -5,8 +5,6 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Portfolio Details - MyResume Bootstrap Template</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
@@ -24,9 +22,11 @@
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-  <!-- Main CSS File -->
+ <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
-
+  
+  <!-- Portfolio Details CSS -->
+  <link href="assets/css/portfolio-details.css" rel="stylesheet">
   <!-- =======================================================
   * Template Name: MyResume
   * Template URL: https://bootstrapmade.com/free-html-bootstrap-template-my-resume/
@@ -70,101 +70,231 @@
       </div>
     </div><!-- End Page Title -->
 
-    <!-- Portfolio Details Section -->
+    <!-- Portfolio Details Section for Dal-Ani Smart Cooler -->
     <section id="portfolio-details" class="portfolio-details section">
 
       <div class="container" data-aos="fade-up">
 
-        <div class="portfolio-details-slider swiper init-swiper">
-          <script type="application/json" class="swiper-config">
-            {
-              "loop": true,
-              "speed": 600,
-              "autoplay": {
-                "delay": 5000
-              },
-              "slidesPerView": "auto",
-              "navigation": {
-                "nextEl": ".swiper-button-next",
-                "prevEl": ".swiper-button-prev"
-              },
-              "pagination": {
-                "el": ".swiper-pagination",
-                "type": "bullets",
-                "clickable": true
-              }
-            }
-          </script>
-          <div class="swiper-wrapper align-items-center">
-
-            <div class="swiper-slide">
-              <img src="assets/img/portfolio/app-1.jpg" alt="">
-            </div>
-
-            <div class="swiper-slide">
-              <img src="assets/img/portfolio/product-1.jpg" alt="">
-            </div>
-
-            <div class="swiper-slide">
-              <img src="assets/img/portfolio/branding-1.jpg" alt="">
-            </div>
-
-            <div class="swiper-slide">
-              <img src="assets/img/portfolio/books-1.jpg" alt="">
-            </div>
-
-          </div>
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
-          <div class="swiper-pagination"></div>
-        </div>
-
-        <div class="row justify-content-between gy-4 mt-4">
+        <div class="row gy-4">
 
           <div class="col-lg-8" data-aos="fade-up">
-            <div class="portfolio-description">
-              <h2>This is an example of portfolio details</h2>
-              <p>
-                Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.
-              </p>
-              <p>
-                Amet consequatur qui dolore veniam voluptatem voluptatem sit. Non aspernatur atque natus ut cum nam et. Praesentium error dolores rerum minus sequi quia veritatis eum. Eos et doloribus doloremque nesciunt molestiae laboriosam.
-              </p>
+            <div class="portfolio-details-slider swiper init-swiper">
+              <script type="application/json" class="swiper-config">
+                {
+                  "loop": true,
+                  "speed": 600,
+                  "autoplay": {
+                    "delay": 5000
+                  },
+                  "slidesPerView": "auto",
+                  "pagination": {
+                    "el": ".swiper-pagination",
+                    "type": "bullets",
+                    "clickable": true
+                  }
+                }
+              </script>
+              <div class="swiper-wrapper align-items-center">
+                <div class="swiper-slide">
+                  <img src="assets/img/masonry-portfolio/dal-ani.jpg" alt="Dal-Ani Smart Cooler">
+                </div>
+                <div class="swiper-slide">
+                  <img src="assets/img/masonry-portfolio/dal-ani-prototype.jpg" alt="Hardware Prototype">
+                </div>
+                <div class="swiper-slide">
+                  <img src="assets/img/masonry-portfolio/dal-ani-app.jpg" alt="Mobile App Interface">
+                </div>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
 
-              <div class="testimonial-item">
+            <div class="back-button-container">
+              <a href="index.html#portfolio" class="back-button">
+                <i class="bi bi-arrow-left"></i>
+                Back to Portfolio
+              </a>
+            </div>
+
+            <div class="portfolio-description" data-aos="fade-up">
+              <h2>Dal-Ani Smart Cooler - Innovation Olympics 3.0</h2>
+              
+              <div class="project-overview">
+                <h3>Project Overview</h3>
                 <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
+                  Dal-Ani Smart Cooler is an IoT-enabled refrigeration solution designed to address the critical problem of vegetable spoilage in the Philippines. Our team developed this innovative solution during Innovation Olympics 3.0, a national startup-style hackathon, where we achieved <strong>Top 10 placement</strong> among hundreds of competing teams.
                 </p>
-                <div>
-                  <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-                  <h3>Sara Wilsson</h3>
-                  <h4>Designer</h4>
+              </div>
+
+              <div class="problem-solution">
+                <h3>Problem We Solved</h3>
+                <p>
+                  In the Philippines, vegetable spoilage is a significant issue that affects both farmers and consumers. Poor storage conditions, lack of temperature monitoring, and inadequate preservation methods lead to substantial food waste and economic losses. Traditional cooling systems are often expensive, energy-intensive, and lack smart monitoring capabilities.
+                </p>
+              </div>
+
+              <div class="solution-details">
+                <h3>Our Solution: Smart Cooling Technology</h3>
+                <p>
+                  Dal-Ani Smart Cooler combines IoT technology with efficient cooling mechanisms to provide:
+                </p>
+                <ul>
+                  <li><strong>Smart Temperature Control:</strong> Arduino-based monitoring system that maintains optimal storage conditions</li>
+                  <li><strong>Mobile App Integration:</strong> Flutter-developed app for real-time monitoring and alerts</li>
+                  <li><strong>Energy Efficiency:</strong> Optimized cooling algorithms to reduce power consumption</li>
+                  <li><strong>Spoilage Prevention:</strong> Predictive alerts to prevent vegetable deterioration</li>
+                  <li><strong>User-Friendly Interface:</strong> Intuitive design for easy operation by farmers and vendors</li>
+                </ul>
+              </div>
+
+              <div class="my-role">
+                <h3>My Role: Hipster/CMO (Design & Marketing)</h3>
+                <p>
+                  As the Hipster/CMO of our 3-person team, I was responsible for the creative and marketing aspects of our project:
+                </p>
+                
+                <div class="role-details">
+                  <div class="role-item">
+                    <h4>Brand Identity & Design</h4>
+                    <ul>
+                      <li>Created the "Dal-Ani" brand name and visual identity</li>
+                      <li>Designed logo, color scheme, and overall brand guidelines</li>
+                      <li>Developed marketing materials and presentation assets</li>
+                      <li>Ensured consistent branding across all touchpoints</li>
+                    </ul>
+                  </div>
+
+                  <div class="role-item">
+                    <h4>User Experience Design</h4>
+                    <ul>
+                      <li>Designed intuitive mobile app interface and user flows</li>
+                      <li>Created wireframes and prototypes for the Flutter application</li>
+                      <li>Focused on user-centered design for Filipino farmers and vendors</li>
+                      <li>Ensured accessibility and ease of use for diverse user groups</li>
+                    </ul>
+                  </div>
+
+                  <div class="role-item">
+                    <h4>Marketing Strategy</h4>
+                    <ul>
+                      <li>Developed go-to-market strategy and positioning</li>
+                      <li>Created compelling pitch presentations for judges</li>
+                      <li>Crafted messaging that resonated with target audience</li>
+                      <li>Handled all visual communication and storytelling</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
 
-              <p>
-                Impedit ipsum quae et aliquid doloribus et voluptatem quasi. Perspiciatis occaecati earum et magnam animi. Quibusdam non qui ea vitae suscipit vitae sunt. Repudiandae incidunt cumque minus deserunt assumenda tempore. Delectus voluptas necessitatibus est.
-              </p>
+              <div class="team-collaboration">
+                <h3>Team Collaboration</h3>
+                <p>Our success was built on strong collaboration between three key roles:</p>
+                <div class="team-roles">
+                  <div class="team-member">
+                    <h4>CEO/Hustler</h4>
+                    <p>Business strategy, market research, and stakeholder management</p>
+                  </div>
+                  <div class="team-member">
+                    <h4>CTO/Hacker (Technical Lead)</h4>
+                    <p>Arduino programming, IoT implementation, and hardware integration</p>
+                  </div>
+                  <div class="team-member">
+                    <h4>CMO/Hipster (Me)</h4>
+                    <p>Design, branding, user experience, and marketing strategy</p>
+                  </div>
+                </div>
+              </div>
 
-              <p>
-                Sunt voluptatum sapiente facilis quo odio aut ipsum repellat debitis. Molestiae et autem libero. Explicabo et quod necessitatibus similique quis dolor eum. Numquam eaque praesentium rem et qui nesciunt.
-              </p>
+              <div class="deliverables">
+                <h3>Project Deliverables</h3>
+                <p>Within the intensive 2-week development period and 24-hour hackathon format, we successfully delivered:</p>
+                <ul>
+                  <li><strong>Working Hardware Prototype:</strong> Functional Arduino-based cooling system with IoT capabilities</li>
+                  <li><strong>Mobile Application:</strong> Flutter-developed app with real-time monitoring features</li>
+                  <li><strong>Brand Identity:</strong> Complete visual identity and marketing materials</li>
+                  <li><strong>Business Plan:</strong> Comprehensive strategy for market entry and scaling</li>
+                  <li><strong>Pitch Presentation:</strong> Compelling presentation that secured Top 10 placement</li>
+                </ul>
+              </div>
 
+              <div class="challenges-learnings">
+                <h3>Challenges & Key Learnings</h3>
+                
+                <div class="challenge-item">
+                  <h4>Technical Challenges</h4>
+                  <p>Integrating IoT sensors with mobile app connectivity while maintaining cost-effectiveness for the Filipino market required creative problem-solving and resource optimization.</p>
+                </div>
+
+                <div class="challenge-item">
+                  <h4>Business Complexities</h4>
+                  <p>Understanding the agricultural supply chain in the Philippines and developing a viable business model that addresses real market needs taught me the importance of user research and market validation.</p>
+                </div>
+
+                <div class="challenge-item">
+                  <h4>Entrepreneurial Insights</h4>
+                  <p>This experience gave me invaluable exposure to the startup ecosystem, teaching me about product development, pitch presentation, and the entrepreneurial mindset needed for innovation.</p>
+                </div>
+              </div>
+
+              <div class="tech-stack">
+                <h3>Technologies Used</h3>
+                <div class="d-flex flex-wrap gap-2">
+                  <span class="badge bg-primary">Flutter</span>
+                  <span class="badge bg-success">Arduino</span>
+                  <span class="badge bg-info">IoT</span>
+                  <span class="badge bg-warning text-dark">Sensors</span>
+                  <span class="badge bg-secondary">Mobile Development</span>
+                  <span class="badge bg-danger">Hardware Integration</span>
+                </div>
+              </div>
+
+              <div class="achievement">
+                <h3>Achievement & Impact</h3>
+                <p>
+                  Achieving <strong>Top 10 placement</strong> in Innovation Olympics 3.0 among hundreds of competing teams validated our solution's potential and market relevance. The project demonstrated our team's ability to identify real-world problems, develop innovative solutions, and present them effectively to industry judges.
+                </p>
+                <p>
+                  This experience significantly enhanced my skills in design thinking, entrepreneurship, and cross-functional collaboration while contributing to a solution that addresses food security in the Philippines.
+                </p>
+              </div>
             </div>
+
           </div>
 
-          <div class="col-lg-3" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
             <div class="portfolio-info">
-              <h3>Project information</h3>
+              <h3>Project Information</h3>
               <ul>
-                <li><strong>Category</strong> Web design</li>
-                <li><strong>Client</strong> ASU Company</li>
-                <li><strong>Project date</strong> 01 March, 2020</li>
-                <li><strong>Project URL</strong> <a href="#">www.example.com</a></li>
-                <li><a href="#" class="btn-visit align-self-start">Visit Website</a></li>
+                <li><strong>Category:</strong> IoT Application / Startup</li>
+                <li><strong>Client:</strong> Innovation Olympics 3.0</li>
+                <li><strong>Duration:</strong> 2 Weeks + 24-hour Hackathon</li>
+                <li><strong>Team Size:</strong> 3 Members</li>
+                <li><strong>Role:</strong> Hipster/CMO</li>
+                <li><strong>Achievement:</strong> Top 10 Finalist</li>
+                <li><strong>Year:</strong> 2024</li>
               </ul>
+
+              <div class="project-highlights">
+                <h4>Key Highlights</h4>
+                <ul class="list-unstyled">
+                  <li><i class="bi bi-check-circle text-success"></i> Top 10 placement in national competition</li>
+                  <li><i class="bi bi-check-circle text-success"></i> Working hardware prototype delivered</li>
+                  <li><i class="bi bi-check-circle text-success"></i> Full mobile app developed</li>
+                  <li><i class="bi bi-check-circle text-success"></i> Complete brand identity created</li>
+                  <li><i class="bi bi-check-circle text-success"></i> Addressed real market problem</li>
+                </ul>
+              </div>
+
+              <div class="project-skills">
+                <h4>Skills Demonstrated</h4>
+                <ul class="list-unstyled">
+                  <li><i class="bi bi-palette text-primary"></i> Brand Design & Visual Identity</li>
+                  <li><i class="bi bi-phone text-primary"></i> Mobile App UI/UX Design</li>
+                  <li><i class="bi bi-megaphone text-primary"></i> Marketing Strategy</li>
+                  <li><i class="bi bi-people text-primary"></i> Team Collaboration</li>
+                  <li><i class="bi bi-presentation text-primary"></i> Pitch Presentation</li>
+                  <li><i class="bi bi-lightbulb text-primary"></i> Creative Problem Solving</li>
+                </ul>
+              </div>
             </div>
           </div>
 
