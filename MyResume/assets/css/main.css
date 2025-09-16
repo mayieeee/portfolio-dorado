@@ -897,177 +897,208 @@ section,
     0 0 20px rgba(255, 105, 180, 0.1);
 }
 
-/* Animations */
-@keyframes neonPulse {
-  0% {
-    box-shadow: 
-      0 0 20px rgba(255, 105, 180, 0.5),
-      0 0 40px rgba(255, 105, 180, 0.3),
-      0 0 60px rgba(255, 105, 180, 0.2);
-  }
-  100% {
-    box-shadow: 
-      0 0 30px rgba(255, 105, 180, 0.7),
-      0 0 50px rgba(255, 105, 180, 0.4),
-      0 0 70px rgba(255, 105, 180, 0.3);
-  }
-}
-
-@keyframes rotateGlow {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-/* About responsive */
-@media (max-width: 991px) {
-  .about .col-lg-5 {
-    margin-bottom: 3rem;
-  }
-  
-  .about .img-fluid {
-    max-width: 350px;
-    margin: 0 auto;
-    display: block;
-  }
-
-  .about .content {
-    margin-top: 2rem;
-  }
-}
-
 /*--------------------------------------------------------------
-# Stats Section
+# Service Details Section
 --------------------------------------------------------------*/
-.stats i {
-  background-color: var(--accent-color);
-  color: var(--contrast-color);
-  width: 54px;
-  height: 54px;
-  font-size: 24px;
-  border-radius: 50px;
-  display: inline-flex;
+.service-details .service-box {
+  padding: 20px;
+  box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+.service-details .service-box+.service-box {
+  margin-top: 30px;
+}
+
+.service-details .service-box h4 {
+  font-size: 20px;
+  font-weight: 700;
+  border-bottom: 2px solid color-mix(in srgb, var(--default-color), transparent 92%);
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+}
+
+.service-details .services-list a {
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  background-color: color-mix(in srgb, var(--default-color), transparent 96%);
+  display: flex;
   align-items: center;
-  justify-content: center;
-  position: relative;
-  z-index: 1;
+  padding: 12px 15px;
+  margin-top: 15px;
+  transition: 0.3s;
 }
 
-.stats .stats-item {
-  margin-top: 10px;
-  width: 100%;
-  position: relative;
-  text-align: center;
-  z-index: 0;
+.service-details .services-list a:first-child {
+  margin-top: 0;
 }
 
-.stats .stats-item span {
-  font-size: 36px;
-  display: block;
-  font-weight: 700;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
-}
-
-.stats .stats-item p {
-  padding: 0;
-  margin: 0;
-  color: color-mix(in srgb, var(--default-color), transparent 50%);
+.service-details .services-list a i {
   font-size: 16px;
+  margin-right: 8px;
+  color: var(--accent-color);
 }
 
-/*--------------------------------------------------------------
-# Skills Section
---------------------------------------------------------------*/
-.skills .progress {
-  height: 60px;
-  display: block;
-  background: none;
-  border-radius: 0;
+.service-details .services-list a.active {
+  color: var(--contrast-color);
+  background-color: var(--accent-color);
 }
 
-.skills .progress .skill {
-  color: var(--heading-color);
-  padding: 0;
-  margin: 0 0 6px 0;
-  text-transform: uppercase;
-  display: block;
-  font-weight: 600;
-  font-family: var(--heading-font);
+.service-details .services-list a.active i {
+  color: var(--contrast-color);
 }
 
-.skills .progress .skill .val {
-  float: right;
-  font-style: normal;
+.service-details .services-list a:hover {
+  background-color: color-mix(in srgb, var(--accent-color), transparent 95%);
+  color: var(--accent-color);
 }
 
-.skills .progress-bar-wrap {
-  background: color-mix(in srgb, var(--default-color), transparent 90%);
-  height: 10px;
+.service-details .download-catalog a {
+  color: var(--default-color);
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  transition: 0.3s;
+  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
 }
 
-.skills .progress-bar {
-  width: 1px;
-  height: 10px;
-  transition: 0.9s;
-  background-color: var(--primary);
+.service-details .download-catalog a:first-child {
+  border-top: 0;
+  padding-top: 0;
 }
 
-/*--------------------------------------------------------------
-# Resume Section
---------------------------------------------------------------*/
-.resume .resume-title {
-  color: var(--primary-dark);
-  font-size: 26px;
-  font-weight: 700;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-.resume .resume-item {
-  padding: 0 0 20px 20px;
-  margin-bottom: 20px;
-  border-left: 2px solid var(--accent-color);
-  position: relative;
-}
-
-.resume .resume-item h4 {
-  line-height: 18px;
-  font-size: 18px;
-  font-weight: 600;
-  text-transform: uppercase;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
-  margin-bottom: 10px;
-}
-
-.resume .resume-item h5 {
-  font-size: 16px;
-  padding: 5px 15px;
-  display: inline-block;
-  font-weight: 600;
-  margin-bottom: 10px;
-}
-
-.resume .resume-item ul {
-  padding-left: 20px;
-}
-
-.resume .resume-item ul li {
-  padding-bottom: 10px;
-}
-
-.resume .resume-item:last-child {
+.service-details .download-catalog a:last-child {
   padding-bottom: 0;
 }
 
-.resume .resume-item::before {
-  content: "";
-  position: absolute;
-  width: 16px;
-  height: 16px;
-  border-radius: 50px;
-  left: -9px;
-  top: 0;
-  background: var(--background-color);
-  border: 2px solid var(--accent-color);
+.service-details .download-catalog a i {
+  font-size: 24px;
+  margin-right: 8px;
+  color: var(--accent-color);
+}
+
+.service-details .download-catalog a:hover {
+  color: var(--accent-color);
+}
+
+.service-details .help-box {
+  background-color: var(--accent-color);
+  color: var(--contrast-color);
+  margin-top: 30px;
+  padding: 30px 15px;
+}
+
+.service-details .help-box .help-icon {
+  font-size: 48px;
+}
+
+.service-details .help-box h4,
+.service-details .help-box a {
+  color: var(--contrast-color);
+}
+
+.service-details .services-img {
+  margin-bottom: 20px;
+}
+
+.service-details h3 {
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.service-details p {
+  font-size: 15px;
+}
+
+.service-details ul {
+  list-style: none;
+  padding: 0;
+  font-size: 15px;
+}
+
+.service-details ul li {
+  padding: 5px 0;
+  display: flex;
+  align-items: center;
+}
+
+.service-details ul i {
+  font-size: 20px;
+  margin-right: 8px;
+  color: var(--accent-color);
+}
+
+/* Service Details Page Styling */
+.service-hero-image {
+  margin-bottom: 30px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.service-hero-image img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.service-feature {
+  padding: 25px;
+  text-align: center;
+  height: 100%; /* Make all cards same height */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background: rgba(255, 105, 180, 0.05);
+  border: 1px solid rgba(255, 105, 180, 0.1);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.service-feature:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(255, 105, 180, 0.2);
+}
+
+.service-icon {
+  font-size: 2.5rem;
+  color: var(--accent-color);
+  margin-bottom: 20px;
+  display: block;
+}
+
+.service-feature h4 {
+  color: var(--heading-color);
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.service-feature p {
+  color: var(--default-color);
+  line-height: 1.6;
+  margin: 0;
+  flex-grow: 1;
+}
+
+/* Ensure proper grid layout */
+@media (min-width: 768px) {
+  .service-details .row .col-md-6:nth-child(odd) {
+    clear: left;
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 767px) {
+  .service-details .col-md-6 {
+    margin-bottom: 20px;
+  }
+  
+  .service-feature {
+    padding: 20px;
+  }
+  
+  .service-icon {
+    font-size: 2rem;
+  }
 }
 
 /*--------------------------------------------------------------
@@ -1083,36 +1114,40 @@ section,
 .portfolio .portfolio-filters li {
   cursor: pointer;
   display: inline-block;
-  padding: 8px 20px 10px 20px;
-  margin: 0;
-  font-size: 15px;
-  font-weight: 500;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 400;
   line-height: 1;
+  text-transform: uppercase;
+  color: var(--default-color);
   margin-bottom: 5px;
-  border-radius: 50px;
+  margin-right: 10px;
   transition: all 0.3s ease-in-out;
+  border-radius: 50px;
   font-family: var(--heading-font);
 }
 
 .portfolio .portfolio-filters li:hover,
 .portfolio .portfolio-filters li.filter-active {
+  background: var(--accent-color);
   color: var(--contrast-color);
-  background-color: var(--accent-color);
 }
 
-.portfolio .portfolio-filters li:first-child {
-  margin-left: 0;
+/* Remove any special styling for robotics filter */
+.portfolio .portfolio-filters li[data-filter=".filter-robotics"] {
+  background: transparent !important;
+  color: var(--default-color) !important;
+  border-radius: 50px !important;
+  padding: 8px 16px !important;
+  transition: all 0.3s ease !important;
 }
 
-.portfolio .portfolio-filters li:last-child {
-  margin-right: 0;
-}
-
-@media (max-width: 575px) {
-  .portfolio .portfolio-filters li {
-    font-size: 14px;
-    margin: 0 0 10px 0;
-  }
+.portfolio .portfolio-filters li[data-filter=".filter-robotics"]:hover,
+.portfolio .portfolio-filters li[data-filter=".filter-robotics"].filter-active {
+  background: var(--accent-color) !important;
+  color: var(--contrast-color) !important;
+  transform: none !important;
+  box-shadow: none !important;
 }
 
 .portfolio .portfolio-item {
@@ -1169,6 +1204,34 @@ section,
 .portfolio .portfolio-item:hover .portfolio-info {
   opacity: 1;
   bottom: 0;
+}
+
+/* Portfolio Robotics Filter Styling */
+.portfolio-filters li[data-filter=".filter-robotics"] {
+  background: linear-gradient(135deg, var(--accent-color), var(--primary));
+  color: var(--contrast-color);
+  border-radius: 25px;
+  padding: 8px 20px;
+  transition: all 0.3s ease;
+}
+
+.portfolio-filters li[data-filter=".filter-robotics"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
+}
+
+/* Robotics portfolio items special styling */
+.filter-robotics .portfolio-info {
+  background: linear-gradient(135deg, rgba(255, 105, 180, 0.9), rgba(147, 112, 219, 0.9));
+}
+
+.filter-robotics .portfolio-info h4 {
+  color: white;
+  font-weight: 700;
+}
+
+.filter-robotics .portfolio-info p {
+  color: rgba(255, 255, 255, 0.9);
 }
 
 /*--------------------------------------------------------------
@@ -1589,135 +1652,6 @@ section,
 }
 
 /*--------------------------------------------------------------
-# Service Details Section
---------------------------------------------------------------*/
-.service-details .service-box {
-  padding: 20px;
-  box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.1);
-}
-
-.service-details .service-box+.service-box {
-  margin-top: 30px;
-}
-
-.service-details .service-box h4 {
-  font-size: 20px;
-  font-weight: 700;
-  border-bottom: 2px solid color-mix(in srgb, var(--default-color), transparent 92%);
-  padding-bottom: 15px;
-  margin-bottom: 15px;
-}
-
-.service-details .services-list a {
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
-  background-color: color-mix(in srgb, var(--default-color), transparent 96%);
-  display: flex;
-  align-items: center;
-  padding: 12px 15px;
-  margin-top: 15px;
-  transition: 0.3s;
-}
-
-.service-details .services-list a:first-child {
-  margin-top: 0;
-}
-
-.service-details .services-list a i {
-  font-size: 16px;
-  margin-right: 8px;
-  color: var(--accent-color);
-}
-
-.service-details .services-list a.active {
-  color: var(--contrast-color);
-  background-color: var(--accent-color);
-}
-
-.service-details .services-list a.active i {
-  color: var(--contrast-color);
-}
-
-.service-details .services-list a:hover {
-  background-color: color-mix(in srgb, var(--accent-color), transparent 95%);
-  color: var(--accent-color);
-}
-
-.service-details .download-catalog a {
-  color: var(--default-color);
-  display: flex;
-  align-items: center;
-  padding: 10px 0;
-  transition: 0.3s;
-  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
-}
-
-.service-details .download-catalog a:first-child {
-  border-top: 0;
-  padding-top: 0;
-}
-
-.service-details .download-catalog a:last-child {
-  padding-bottom: 0;
-}
-
-.service-details .download-catalog a i {
-  font-size: 24px;
-  margin-right: 8px;
-  color: var(--accent-color);
-}
-
-.service-details .download-catalog a:hover {
-  color: var(--accent-color);
-}
-
-.service-details .help-box {
-  background-color: var(--accent-color);
-  color: var(--contrast-color);
-  margin-top: 30px;
-  padding: 30px 15px;
-}
-
-.service-details .help-box .help-icon {
-  font-size: 48px;
-}
-
-.service-details .help-box h4,
-.service-details .help-box a {
-  color: var(--contrast-color);
-}
-
-.service-details .services-img {
-  margin-bottom: 20px;
-}
-
-.service-details h3 {
-  font-size: 26px;
-  font-weight: 700;
-}
-
-.service-details p {
-  font-size: 15px;
-}
-
-.service-details ul {
-  list-style: none;
-  padding: 0;
-  font-size: 15px;
-}
-
-.service-details ul li {
-  padding: 5px 0;
-  display: flex;
-  align-items: center;
-}
-
-.service-details ul i {
-  font-size: 20px;
-  margin-right: 8px;
-  color: var(--accent-color);
-}
-
-/*--------------------------------------------------------------
 # Starter Section Section
 --------------------------------------------------------------*/
 .starter-section {
@@ -2042,4 +1976,93 @@ section,
   justify-content: center;
   gap: 1.5rem;
   margin-bottom: 2rem;
+}
+
+/* Portfolio Details Image Slider - Make Smaller */
+.portfolio-details .portfolio-details-slider {
+  max-width: 600px; /* Reduced from full width */
+  margin: 0 auto 40px auto; /* Center the slider */
+}
+
+.portfolio-details .portfolio-details-slider .swiper-slide img {
+  width: 100%;
+  height: 350px; /* Set fixed height */
+  object-fit: cover; /* Maintain aspect ratio */
+  border-radius: 10px; /* Add rounded corners */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .portfolio-details .portfolio-details-slider {
+    max-width: 100%;
+  }
+  
+  .portfolio-details .portfolio-details-slider .swiper-slide img {
+    height: 250px; /* Smaller on mobile */
+  }
+}
+
+@media (max-width: 992px) {
+  .portfolio-details .portfolio-details-slider {
+    max-width: 80%;
+  }
+  
+  .portfolio-details .portfolio-details-slider .swiper-slide img {
+    height: 300px; /* Medium size on tablet */
+  }
+}
+
+/* Fix Service Features Layout */
+.service-details .row {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+.service-details .col-md-6 {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-bottom: 30px;
+}
+
+/* Service Item Link Behavior */
+.service-item {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.service-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.service-item .stretched-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.service-item .stretched-link:hover {
+  color: inherit;
+}
+
+.service-item .stretched-link::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  content: "";
+}
+
+/* Ensure proper hover effects for all service items */
+.services .service-item h3 {
+  color: var(--heading-color);
+  margin-bottom: 15px;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.services .service-item:hover h3 {
+  color: var(--accent-color);
 }
