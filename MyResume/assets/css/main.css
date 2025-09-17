@@ -1850,78 +1850,57 @@ section,
 .skills .section-title h2 {
   background: linear-gradient(135deg, var(--heading-color), var(--primary));
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: 2.5rem;
   font-weight: 800;
   text-shadow: 0 0 20px rgba(255, 105, 180, 0.1);
+  position: relative;
+}
+
+.skills .section-title h2::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-color), var(--primary));
+  border-radius: 2px;
+  box-shadow: 0 0 15px rgba(255, 105, 180, 0.4);
 }
 
 .skills .progress {
-  height: 12px;
-  background: rgba(255, 105, 180, 0.08);
-  border-radius: 20px;
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+  height: 15px;
+  background: rgba(255, 105, 180, 0.1);
+  border-radius: 25px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
   margin-bottom: 30px;
   overflow: hidden;
   position: relative;
 }
 
-.skills .progress::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(90deg, 
-    transparent,
-    rgba(255, 255, 255, 0.2),
-    transparent
-  );
-  animation: shimmer 2s infinite;
-  opacity: 0;
-}
-
-.skills .progress:hover::before {
-  opacity: 1;
-}
-
 .skills .progress-bar-wrap {
   height: 100%;
-  border-radius: 20px;
+  border-radius: 25px;
   overflow: hidden;
 }
 
 .skills .progress-bar {
   height: 100%;
+  width: 0%; /* Start at 0% width */
   background: linear-gradient(135deg, 
     var(--accent-color) 0%,
     var(--primary) 50%,
     #9370DB 100%);
-  border-radius: 20px;
+  border-radius: 25px;
   position: relative;
   overflow: hidden;
-  transition: width 2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   box-shadow: 
-    0 2px 10px rgba(255, 105, 180, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3);
-}
-
-.skills .progress-bar::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: repeating-linear-gradient(
-    45deg,
-    transparent,
-    transparent 10px,
-    rgba(255, 255, 255, 0.1) 10px,
-    rgba(255, 255, 255, 0.1) 20px
-  );
-  animation: barberpole 20s linear infinite;
+    0 2px 8px rgba(255, 105, 180, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  transition: width 1.5s ease-out;
 }
 
 .skills .progress-bar::after {
@@ -1936,92 +1915,42 @@ section,
     transparent 50%,
     rgba(255, 255, 255, 0.1) 100%
   );
-  border-radius: 20px;
+  border-radius: 25px;
 }
 
 .skills .skill {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 12px;
+  margin-bottom: 15px;
   font-weight: 600;
   color: var(--default-color);
   font-size: 1.1rem;
 }
 
 .skills .skill span {
-  background: linear-gradient(135deg, var(--heading-color), var(--primary));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--heading-color);
   font-weight: 700;
-  text-shadow: 0 0 10px rgba(255, 105, 180, 0.2);
 }
 
 .skills .skill .val {
   background: var(--accent-color);
   color: white;
-  padding: 4px 12px;
-  border-radius: 15px;
+  padding: 5px 15px;
+  border-radius: 20px;
   font-size: 0.9rem;
   font-weight: 700;
   box-shadow: 0 2px 8px rgba(255, 105, 180, 0.3);
-  animation: pulse-glow 2s ease-in-out infinite;
 }
 
 /* Animation Keyframes */
-@keyframes shimmer {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
-}
-
-@keyframes barberpole {
-  0% { background-position: 0 0; }
-  100% { background-position: 40px 0; }
-}
-
-@keyframes pulse-glow {
-  0%, 100% { 
-    box-shadow: 0 2px 8px rgba(255, 105, 180, 0.3);
-    transform: scale(1);
-  }
-  50% { 
-    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.5);
-    transform: scale(1.05);
-  }
-}
-
-@keyframes skill-load {
-  0% {
+@keyframes fillUp {
+  from {
     width: 0%;
-    opacity: 0;
   }
-  20% {
-    opacity: 1;
+  to {
+    width: var(--target-width);
   }
-  100% {
-    opacity: 1;
-  }
-}
-
-/* Individual skill loading animations with staggered timing */
-.skills-animation .progress:nth-child(1) .progress-bar {
-  animation: skill-load 2s ease-out 0.2s both;
-}
-
-.skills-animation .progress:nth-child(2) .progress-bar {
-  animation: skill-load 2s ease-out 0.4s both;  
-}
-
-.skills-animation .progress:nth-child(3) .progress-bar {
-  animation: skill-load 2s ease-out 0.6s both;
-}
-
-.skills-animation .progress:nth-child(4) .progress-bar {
-  animation: skill-load 2s ease-out 0.8s both;
-}
-
-.skills-animation .progress:nth-child(5) .progress-bar {
-  animation: skill-load 2s ease-out 1.0s both;
 }
 
 /* Hover effects for skill items */
@@ -2037,33 +1966,7 @@ section,
     inset 0 1px 0 rgba(255, 255, 255, 0.4);
 }
 
-/* Skills Loading Indicator */
-.skills-loading {
-  text-align: center;
-  padding: 40px 0;
-  color: var(--default-color);
-}
 
-.loading-spinner {
-  width: 40px;
-  height: 40px;
-  border: 4px solid rgba(255, 105, 180, 0.2);
-  border-top: 4px solid var(--accent-color);
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-  margin: 0 auto 20px;
-}
-
-.skills-loading p {
-  font-size: 1.1rem;
-  color: var(--default-color);
-  margin: 0;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
 
 /* Responsive Design */
 @media (max-width: 768px) {

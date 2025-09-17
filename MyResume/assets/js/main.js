@@ -111,7 +111,7 @@
   new PureCounter();
 
   /**
-   * Enhanced Skills Animation with Loading Effect
+   * Animate the skills progress bars on scroll
    */
   let skillsAnimation = document.querySelectorAll('.skills-animation');
   let skillsAnimated = false;
@@ -124,54 +124,30 @@
         if (direction === 'down' && !skillsAnimated) {
           skillsAnimated = true;
           
-          // Show loading indicator
-          const loadingIndicator = document.getElementById('skillsLoading');
-          if (loadingIndicator) {
-            loadingIndicator.style.display = 'block';
-            item.style.opacity = '0.3';
-          }
-          
-          // Hide loading and start animation after a brief delay
-          setTimeout(() => {
-            if (loadingIndicator) {
-              loadingIndicator.style.display = 'none';
-              item.style.opacity = '1';
-              item.style.transition = 'opacity 0.5s ease';
-            }
+          let progressBars = item.querySelectorAll('.progress .progress-bar');
+          progressBars.forEach((bar, index) => {
+            // Get the target percentage from aria-valuenow
+            const targetWidth = bar.getAttribute('aria-valuenow') + '%';
             
-            let progress = item.querySelectorAll('.progress .progress-bar');
-            progress.forEach((el, index) => {
-              // Reset width first
-              el.style.width = '0%';
-              el.style.opacity = '0';
+            // Start with 0% width
+            bar.style.width = '0%';
+            
+            // Animate each bar with staggered timing
+            setTimeout(() => {
+              bar.style.transition = 'width 1.5s ease-out';
+              bar.style.width = targetWidth;
               
-              // Animate with staggered timing
+              // Add a small bounce effect when animation completes
               setTimeout(() => {
-                el.style.transition = 'width 2s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.5s ease';
-                el.style.width = el.getAttribute('aria-valuenow') + '%';
-                el.style.opacity = '1';
-                
-                // Add a subtle bounce effect at the end
+                bar.style.transform = 'scaleY(1.05)';
                 setTimeout(() => {
-                  el.style.transform = 'scaleY(1.1)';
-                  setTimeout(() => {
-                    el.style.transform = 'scaleY(1)';
-                    el.style.transition += ', transform 0.3s ease';
-                  }, 100);
-                }, 1800);
-                
-              }, index * 200); // Stagger each bar by 200ms
-            });
-            
-            // Add loading text animation
-            let skillLabels = item.querySelectorAll('.skill .val');
-            skillLabels.forEach((label, index) => {
-              setTimeout(() => {
-                label.style.animation = 'pulse-glow 0.6s ease-out';
-              }, index * 200 + 1500);
-            });
-            
-          }, 800); // Show loading for 800ms
+                  bar.style.transform = 'scaleY(1)';
+                  bar.style.transition += ', transform 0.2s ease';
+                }, 150);
+              }, 1400); // Just before the width animation completes
+              
+            }, index * 300); // Stagger each bar by 300ms
+          });
         }
       }
     });
