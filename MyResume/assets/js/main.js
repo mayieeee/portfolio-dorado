@@ -111,47 +111,100 @@
   new PureCounter();
 
   /**
-   * Animate the skills progress bars on scroll
+   * Animate the skills progress bars on scroll (Using Intersection Observer)
    */
-  let skillsAnimation = document.querySelectorAll('.skills-animation');
-  let skillsAnimated = false;
   
-  skillsAnimation.forEach((item) => {
-    new Waypoint({
-      element: item,
-      offset: '80%',
-      handler: function(direction) {
-        if (direction === 'down' && !skillsAnimated) {
-          skillsAnimated = true;
-          
-          let progressBars = item.querySelectorAll('.progress .progress-bar');
-          progressBars.forEach((bar, index) => {
-            // Get the target percentage from aria-valuenow
-            const targetWidth = bar.getAttribute('aria-valuenow') + '%';
-            
-            // Start with 0% width
-            bar.style.width = '0%';
-            
-            // Animate each bar with staggered timing
-            setTimeout(() => {
-              bar.style.transition = 'width 1.5s ease-out';
-              bar.style.width = targetWidth;
-              
-              // Add a small bounce effect when animation completes
-              setTimeout(() => {
-                bar.style.transform = 'scaleY(1.05)';
-                setTimeout(() => {
-                  bar.style.transform = 'scaleY(1)';
-                  bar.style.transition += ', transform 0.2s ease';
-                }, 150);
-              }, 1400); // Just before the width animation completes
-              
-            }, index * 300); // Stagger each bar by 300ms
-          });
-        }
+  // Initialize progress bars to 0% (no debug colors/forced styles)
+  document.querySelectorAll('.skills .progress-bar').forEach((bar) => {
+    bar.style.width = '0%';
+  });
+  
+  function animateProgressBars() {
+    const skillsSection = document.querySelector('.skills-animation');
+    if (!skillsSection) return;
+    
+    const progressBars = skillsSection.querySelectorAll('.progress-bar-wrap .progress-bar');
+    console.log(`🎯 STARTING ANIMATION - Found ${progressBars.length} progress bars`);
+    
+    progressBars.forEach((bar, index) => {
+      const targetWidth = bar.getAttribute('aria-valuenow');
+      console.log(`🚀 Bar ${index + 1}: Animating to ${targetWidth}%`);
+      
+      // Reset initial state
+      bar.style.width = '0%';
+      bar.style.opacity = '0.8';
+      bar.style.transform = 'scaleY(0.9)';
+      bar.style.display = 'block';
+      
+      // Start animation with delay
+      setTimeout(() => {
+        console.log(`⚡ Starting animation for bar ${index + 1}`);
+        
+        // FORCE the bar to be completely visible first
+        bar.style.display = 'block';
+        bar.style.visibility = 'visible';
+        bar.style.height = '28px';
+        bar.style.background = 'linear-gradient(135deg, #FF69B4, #FFB6C1, #9370DB)';
+        bar.style.borderRadius = '14px';
+        bar.style.position = 'relative';
+        
+        // Set transition properties
+        bar.style.transition = 'width 2.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 1s ease, transform 0.6s ease, box-shadow 0.5s ease';
+        
+        // Force immediate visual feedback
+        bar.style.width = '5%'; // Small initial width to show it's working
+        setTimeout(() => {
+          // Now animate to full target
+          bar.style.width = targetWidth + '%';
+          bar.style.opacity = '1';
+          bar.style.transform = 'scaleY(1)';
+          console.log(`📊 Bar ${index + 1} should now be ${targetWidth}% width`);
+        }, 100);
+        
+        // Add glow effect during animation
+        setTimeout(() => {
+          bar.style.boxShadow = '0 6px 25px rgba(255, 105, 180, 0.9)';
+          setTimeout(() => {
+            bar.style.boxShadow = '0 2px 8px rgba(255, 105, 180, 0.4)';
+          }, 400);
+        }, 1000);
+        
+        // Final bounce
+        setTimeout(() => {
+          bar.style.transform = 'scaleY(1.1)';
+          setTimeout(() => {
+            bar.style.transform = 'scaleY(1)';
+          }, 200);
+        }, 2400);
+        
+      }, index * 300);
+    });
+  }
+  
+  // Use Intersection Observer for more reliable detection
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
+        console.log('🔥 Skills section is visible! Starting animations...');
+        animateProgressBars();
+        observer.unobserve(entry.target); // Only animate once
       }
     });
+  }, {
+    threshold: 0.3,
+    rootMargin: '0px 0px -100px 0px'
   });
+  
+  // (Removed debug logging)
+  
+  // Start observing
+  const skillsSection = document.querySelector('.skills-animation');
+  if (skillsSection) {
+    observer.observe(skillsSection);
+    console.log('👀 Observer set up for skills section');
+  } else {
+    console.error('❌ Skills section not found!');
+  }
 
   /**
    * Initiate glightbox
